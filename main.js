@@ -741,7 +741,7 @@ Request.prototype.start = function () {
             response.body = buffer.join('')
           }
 
-          if (self._json || response.headers['content-type'] === 'application/json') {
+          if (self._json || response.headers['content-type'].match('application/json')) {
             try {
               response.body = JSON.parse(response.body)
             } catch (e) {}
